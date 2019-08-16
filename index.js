@@ -37,7 +37,7 @@ gamePlay();
 
 function game() {
   while (playerScore < 5 && computerScore < 5) {
-    console.log(gamePlay());
+    gamePlay();
   }
   if (playerScore === 5) {
     console.log('you win!');
