@@ -1,4 +1,6 @@
 'use strict';
+let playerScore = 0;
+let computerScore = 0;
 
 function computerSelection() {
   let computerChoice = Math.floor(Math.random()* 3) + 1;
@@ -12,22 +14,9 @@ function computerSelection() {
 }
 computerSelection();
 
-// function formatInput(input) {
-//   input0 = input.toLowerCase();
-//   return input;
-// }
-
-// function playerSelection(playerChoice) {
-//   playerChoice = prompt('Choose wisely: Rock or Paper or Scissor');
-//   playerChoice = formatInput(playerChoice);
-//   if (playerSelection.toLowerCase() !== 'rock' || playerSelection.toLowerCase() !== 'paper' || playerSelection.toLowerCase() !== 'scissor') {
-//     prompt('Input Rock Paper or Scissor');
-//     playerChoice = formatInput(playerChoice);
-//   }
-//   return playerChoice;
-// }
-
 function gamePlay(playerSelection, computerSelection) {
+  playerSelection = prompt('Choose Wisely: Rock, Paper, or Scissor', 'Rock','Paper','Scissor').toLowerCase();
+
   if (playerSelection === 'rock' && computerSelection === 'scissor') {
     return 'Congrats! Rock beats Scissors!';
   } else if (playerSelection === 'paper' && computerSelection === 'rock') {
@@ -46,9 +35,14 @@ function gamePlay(playerSelection, computerSelection) {
 }
 gamePlay();
 
-const playerSelection = prompt('Choose Wisely: Rock, Paper, or Scissor', 'Rock','Paper','Scissor');
-if (playerSelection.toLowerCase() !== 'rock' && playerSelection.toLowerCase() !== 'paper' && playerSelection.toLowerCase() !== 'scissor') {
-  alert('Input Rock Paper or Scissor');
-} else {
-  return playerSelection;
+function game() {
+  while (playerScore < 5 && computerScore < 5) {
+    console.log(gamePlay());
+  }
+  if (playerScore === 5) {
+    console.log('you win!');
+  } else {
+    console.log('you lose');
+  }
 }
+game();
